@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "charset": "utf-8",
+        "module": "es6",
+        "target": "es6",
+        "removeComments": false,
+        "sourceMap": false
+    }
+}
