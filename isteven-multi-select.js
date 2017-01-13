@@ -313,9 +313,14 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                         $scope.helpers.setTicked(item, false);
 
                         let parentGroups = $scope.helpers.getParentGroupsOfItem(item);
-                        for (let parent of parentGroups) {
-                            $scope.helpers.setTicked(parent, false);
-                        }
+                        //for (let parent of parentGroups) {
+                        //    $scope.helpers.setTicked(parent, false);
+                        //}
+						// IE fix
+						for(element_idx in parentGroups) {
+							parent = parentGroups[element_idx];
+							$scope.helpers.setTicked(parent, false);
+						}
                     } else {
                         $scope.helpers.tickTree(item);
                     }
@@ -333,9 +338,14 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                         // freshly unticked, untick all parent groups as well
                         if ($scope.helpers.isNotTicked(item)) {
                             let parentGroups = $scope.helpers.getParentGroupsOfItem(item);
-                            for (let parent of parentGroups) {
-                                $scope.helpers.setTicked(parent, false);
-                            }
+                            //for (let parent of parentGroups) {
+                           //     $scope.helpers.setTicked(parent, false);
+                            //}
+							// IE fix
+							for(element_idx in parentGroups) {
+								parent = parentGroups[element_idx];
+								$scope.helpers.setTicked(parent, false);
+							}
                         }
                     }
                 }
@@ -1003,7 +1013,15 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                     var result = [];
                     var endNumber = 0;
                     var copy = $scope.filteredModel.slice(0, index).reverse();
-                    for (let maybeParent of copy) {
+					
+					
+								
+							
+					
+					// IE fix
+					for(element_idx in copy) {
+						let maybeParent = copy[element_idx];
+                    //for (let maybeParent of copy) {
                         if ($scope.helpers.isGroupEnd(maybeParent)) {
                             endNumber++;
                         } else if ($scope.helpers.isGroupStart(maybeParent)) {
@@ -1027,7 +1045,10 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
 
                     let nestLevel = 0;
 
-                    for (let maybeEnd of $scope.filteredModel.slice(index)) {
+					// IE fix
+						for(element_idx in $scope.filteredModel.slice(index)) {
+							let maybeEnd = $scope.filteredModel.slice(index)[element_idx];
+                    //for (let maybeEnd of $scope.filteredModel.slice(index)) {
                         if ($scope.helpers.isGroupStart(maybeEnd)) {
                             nestLevel++;
                         } else if ($scope.helpers.isGroupEnd(maybeEnd)) {
