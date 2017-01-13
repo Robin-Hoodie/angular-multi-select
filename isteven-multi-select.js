@@ -329,7 +329,8 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                     // If it's single selection mode
                     if ($scope.helpers.isSingleSelectionModel()) {
                         // first, set everything to false
-                        $scope.filteredModel.forEach(item => $scope.helpers.setTicked(item, false));
+                       // $scope.filteredModel.forEach(item => $scope.helpers.setTicked(item, false));
+						$scope.filteredModel.forEach(function(item) { $scope.helpers.setTicked(item, false) });
                         // then set the clicked item to true
                         $scope.helpers.setTicked(item, true);
                     } else {
