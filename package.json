@@ -1,6 +1,6 @@
 {
   "name": "isteven-angular-multiselect",
-  "version": "v4.0.1",
+  "version": "v4.0.2",
   "description": "A multi select dropdown directive for AngularJS",
   "main": "index.js",
   "repository": {
