@@ -317,8 +317,8 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                         //    $scope.helpers.setTicked(parent, false);
                         //}
 						// IE fix
-						for(element_idx in parentGroups) {
-							parent = parentGroups[element_idx];
+						for(let element_idx in parentGroups) {
+							let parent = parentGroups[element_idx];
 							$scope.helpers.setTicked(parent, false);
 						}
                     } else {
@@ -343,8 +343,8 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                            //     $scope.helpers.setTicked(parent, false);
                             //}
 							// IE fix
-							for(element_idx in parentGroups) {
-								parent = parentGroups[element_idx];
+							for(let element_idx in parentGroups) {
+								let parent = parentGroups[element_idx];
 								$scope.helpers.setTicked(parent, false);
 							}
                         }
@@ -1014,13 +1014,13 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                     var result = [];
                     var endNumber = 0;
                     var copy = $scope.filteredModel.slice(0, index).reverse();
-					
-					
-								
-							
-					
+
+
+
+
+
 					// IE fix
-					for(element_idx in copy) {
+					for(let element_idx in copy) {
 						let maybeParent = copy[element_idx];
                     //for (let maybeParent of copy) {
                         if ($scope.helpers.isGroupEnd(maybeParent)) {
@@ -1047,7 +1047,7 @@ angular.module('isteven-multi-select', ['ng']).directive('istevenMultiSelect', [
                     let nestLevel = 0;
 
 					// IE fix
-						for(element_idx in $scope.filteredModel.slice(index)) {
+						for(let element_idx in $scope.filteredModel.slice(index)) {
 							let maybeEnd = $scope.filteredModel.slice(index)[element_idx];
                     //for (let maybeEnd of $scope.filteredModel.slice(index)) {
                         if ($scope.helpers.isGroupStart(maybeEnd)) {
